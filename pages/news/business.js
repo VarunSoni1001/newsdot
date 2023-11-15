@@ -1,8 +1,8 @@
 import NewsCard from "@/components/NewsCard";
 import formatTimeDifference from "@/utils/formatTimeDifference";
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-export default function Home() {
+const business = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMoreNews, setHasMoreNews] = useState(true);
@@ -12,7 +12,7 @@ export default function Home() {
   const fetchNews = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(`/api/news?page=${page}`);
+      const response = await fetch(`/api/news?page=${page}&category=business`);
       if (response.ok) {
         const data = await response.json();
         const newArticles = data.articles || [];
@@ -55,14 +55,14 @@ export default function Home() {
   }, [news, isLoading, hasMoreNews, cantLoad]);
 
   useEffect(() => {
-    document.title = "Top-Headlines | News.";
+    document.title = "Top-Headlines on Business | News.";
     fetchNews();
   }, []);
 
   return (
     <main className="min-h-screen m-auto max-w-[95%] sm:max-w-[90%] md:max-w-[80%] lg:max-w-6xl">
       <p className="text-center text-xl font-bold text-neutral-800 dark:text-neutral-200 mt-10 mb-4">
-        Top-Headlines in India
+        Top-Headlines on Business
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {news?.map((article, index) => (
@@ -89,14 +89,6 @@ export default function Home() {
       )}
     </main>
   );
-}
+};
 
-// for testing purpose
-/* <NewsCard
-            title={'article.title'}
-            image={'article.urlToImage'}
-            date={formatTimeDifference('2023-11-15T15:27:20')}
-            description={'article.description'}
-            sourceName={'article.source.name'}
-            newsLink={'https://google.com'}
-          /> */
+export default business;
