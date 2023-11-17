@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar{
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
     display: none;
 }
