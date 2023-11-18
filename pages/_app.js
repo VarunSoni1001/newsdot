@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
         <div className="w-[600px] h-[600px] rounded-[999px] fixed bottom-0 left-0 -z-10 blur-3xl bg-opacity-60 bg-gradient-to-r from-blue-100 via-teal-50 to-slate-50" />
         <div className="w-[300px] h-[300px] rounded-[999px] fixed bottom-[-10px] left-0 -z-10 blur-3xl bg-opacity-60 bg-gradient-to-r from-Fuchsia-50 via-cyan-50 to-green-100" />
         <div className="font-satoshi min-h-screen dark:bg-black pt-12 lg:pt-20">
-          <Toaster />
+          <Toaster reverseOrder={true} position="top-right" />
           <Navbar />
           <Component {...pageProps} />
           <Footer />

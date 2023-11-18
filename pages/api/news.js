@@ -14,10 +14,8 @@ export default async function handler(req, res) {
         : query && !category && page
         ? `https://newsapi.org/v2/everything?language=en&q=${encodeURIComponent(
             query
-          )}&searchIn=title,description&sortBy=relevency&page=${page}`
-        : page && !query && !category
-        ? `https://newsapi.org/v2/top-headlines?country=in&page=${page}`
-        : `https://newsapi.org/v2/everything?language=en`;
+          )}&searchIn=title,description&sortBy=publishedAt&page=${page}`
+        : `https://newsapi.org/v2/top-headlines?country=in&page=${page}`;
 
     try {
       const response = await fetch(url, {

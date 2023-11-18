@@ -5,6 +5,7 @@ import ThemeSwitch from "./ThemeSwitch";
 import { useRouter } from "next/router";
 import { FaSearch } from "react-icons/fa";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { ImCross } from "react-icons/im";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
@@ -73,13 +74,13 @@ const Navbar = () => {
       searchQuery.length === 0
     ) {
       toast("Please enter a search query!", {
-        icon: <IoCloseCircleOutline color="red" />,
+        icon: <ImCross className="text-red-500" />,
         style: {
           borderRadius: "10px",
           background: "#333",
           color: "#fff",
         },
-        duration: 1000,
+        duration: 1500,
       });
     } else {
       router.push(`/news/search?query=${encodeURIComponent(searchQuery)}`);
@@ -94,7 +95,7 @@ const Navbar = () => {
           : "bg-transparent"
       } ${
         !isMenuOpen ? "justify-between" : "flex-col"
-      } py-3 px-8 fixed top-0 left-0 w-full transition-all ease-in-out duration-300 z-50`}
+      } py-3 px-2 md:px-4 lg:px-8 fixed top-0 left-0 w-full transition-all ease-in-out duration-300 z-50`}
     >
       <div className="flex w-full max-w-5xl justify-between items-center overflow-hidden">
         <div className="text-lg md:text-xl lg:text-2xl">
@@ -108,7 +109,7 @@ const Navbar = () => {
             <AnimatePresence>
               <motion.div
                 initial={{ x: 20, opacity: 0 }}
-                animate={{ x: -10, opacity: 1 }}
+                animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 20, opacity: 0 }}
                 className="flex items-center justify-center"
               >
@@ -121,7 +122,7 @@ const Navbar = () => {
                 >
                   <IoCloseCircleOutline
                     size={17}
-                    className="mr-2 text-gray-500"
+                    className="mr-1 md:mr-2 text-gray-500"
                   />
                 </button>
                 <form
@@ -133,12 +134,12 @@ const Navbar = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search news"
-                    className="placeholder:text-neutral-700 text-sm lg:text-base dark:placeholder:text-neutral-300 py-1 px-2 rounded-md bg-neutral-300 dark:bg-neutral-800 text-black dark:text-white outline-none transition-all ease-in-out duration-300 focus:outline-none"
+                    className="placeholder:text-neutral-700 text-[0.65rem] md:text-sm lg:text-base dark:placeholder:text-neutral-300 py-1 px-1 rounded-md bg-neutral-300 dark:bg-neutral-800 text-black dark:text-white outline-none transition-all ease-in-out duration-300 focus:outline-none"
                   />
                   <button type="submit" title="Search">
                     <FaSearch
                       size={16}
-                      className="text-neutral-900 dark:text-white dark:hover:text-neutral-700 hover:text-neutral-700 transition-all duration-300 ml-2 -translate-x-[0.45rem]"
+                      className="text-neutral-900 dark:text-white dark:hover:text-neutral-700 hover:text-neutral-700 transition-all duration-300 ml-1 md:ml-2 -translate-x-[0.45rem]"
                     />
                   </button>
                 </form>
@@ -226,7 +227,7 @@ const Navbar = () => {
               <Link
                 key={index + " " + menuLink.href}
                 href={menuLink.href}
-                className={`m-4 transition-all ease-in-out duration-300 hover:text-neutral-700 ${
+                className={`my-4 mx-2 xl:mx-4 transition-all ease-in-out duration-300 hover:text-neutral-700 ${
                   router.pathname === menuLink.href
                     ? "font-bold underline underline-offset-4"
                     : ""
