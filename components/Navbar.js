@@ -26,8 +26,7 @@ const Navbar = () => {
   };
 
   const checkScrollPosition = () => {
-    const scrollThreshold = 1;
-    const scrolled = window.scrollY > scrollThreshold;
+    const scrolled = window.scrollY > 1;
     setIsScrolled(scrolled);
   };
 
@@ -91,11 +90,11 @@ const Navbar = () => {
     <div
       className={`flex items-center ${
         isScrolled || isMenuOpen
-          ? "border-b-[1px] border-neutral-700 bg-white dark:bg-black dark:border-neutral-50"
+          ? "border-b border-neutral-700 bg-white dark:bg-black dark:border-neutral-50"
           : "bg-transparent"
       } ${
         !isMenuOpen ? "justify-between" : "flex-col"
-      } py-3 px-2 md:px-4 lg:px-8 fixed top-0 left-0 w-full transition-all ease-in-out duration-300 z-50`}
+      } py-3 px-2 md:px-4 lg:px-8 fixed top-0 left-0 w-full transition-all dark:transition-all ease-in-out dark:ease-in-out duration-300 dark:duration-300 z-50`}
     >
       <div className="flex w-full max-w-5xl justify-between items-center overflow-hidden">
         <div className="text-lg md:text-xl lg:text-2xl">
@@ -127,19 +126,19 @@ const Navbar = () => {
                 </button>
                 <form
                   onSubmit={handleSearch}
-                  className="flex items-center rounded-lg bg-neutral-300 dark:bg-neutral-800 text-black dark:text-white outline-none transition-all ease-in-out duration-300"
+                  className="flex items-center rounded-lg bg-neutral-300 dark:bg-neutral-800 text-black dark:text-white outline-none transition-all dark:transition-all ease-in-out dark:ease-in-out duration-300 dark:duration-300"
                 >
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search news"
-                    className="placeholder:text-neutral-700 text-[0.65rem] md:text-sm lg:text-base dark:placeholder:text-neutral-300 py-1 px-1 rounded-md bg-neutral-300 dark:bg-neutral-800 text-black dark:text-white outline-none transition-all ease-in-out duration-300 focus:outline-none"
+                    className="placeholder:text-neutral-700 text-[0.65rem] md:text-sm lg:text-base dark:placeholder:text-neutral-300 py-1 px-1 lg:px-2 rounded-md bg-neutral-300 dark:bg-neutral-800 text-black dark:text-white outline-none transition-all dark:transition-all ease-in-out dark:ease-in-out duration-300 dark:duration-300 focus:outline-none"
                   />
                   <button type="submit" title="Search">
                     <FaSearch
                       size={16}
-                      className="text-neutral-900 dark:text-white dark:hover:text-neutral-700 hover:text-neutral-700 transition-all duration-300 ml-1 md:ml-2 -translate-x-[0.45rem]"
+                      className="text-neutral-900 dark:text-white dark:hover:text-neutral-700 hover:text-neutral-700 transition-all dark:transition-all duration-300 dark:duration-300 ml-1 md:ml-2 -translate-x-[0.45rem]"
                     />
                   </button>
                 </form>
@@ -157,7 +156,7 @@ const Navbar = () => {
             >
               <FaSearch
                 size={16}
-                className="text-neutral-900 dark:text-white dark:hover:text-neutral-700 hover:text-neutral-700 transition-all duration-300"
+                className="text-neutral-900 dark:text-white dark:hover:text-neutral-700 hover:text-neutral-700 transition-all dark:transition-all duration-300 dark:duration-300"
               />
             </motion.button>
           )}
@@ -227,10 +226,10 @@ const Navbar = () => {
               <Link
                 key={index + " " + menuLink.href}
                 href={menuLink.href}
-                className={`my-4 mx-2 xl:mx-4 transition-all ease-in-out duration-300 hover:text-neutral-700 ${
+                className={`my-4 mx-2 xl:mx-4 transition-all dark:transition-all ease-in-out dark:ease-in-out duration-300 dark:duration-300 hover:text-neutral-700 ${
                   router.pathname === menuLink.href
                     ? "font-bold underline underline-offset-4"
-                    : ""
+                    : "hover:underline hover:underline-offset-4 hover:decoration-neutral-700"
                 }`}
               >
                 {menuLink.label}
@@ -257,10 +256,10 @@ const Navbar = () => {
                   <Link
                     key={index + " " + menuLink.href}
                     href={menuLink.href}
-                    className={`m-4 transition-all ease-in-out duration-300 text-center hover:text-neutral-700 ${
+                    className={`m-4 transition-all dark:transition-all ease-in-out dark:ease-in-out duration-300 dark:duration-300 text-center hover:text-neutral-700 ${
                       router.pathname === menuLink.href
                         ? "font-bold underline underline-offset-4"
-                        : ""
+                        : "hover:underline hover:underline-offset-4 hover:decoration-neutral-700"
                     }`}
                   >
                     {menuLink.label}

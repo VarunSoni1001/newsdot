@@ -41,7 +41,7 @@ const NewsCard = ({
         className="m-2 md:m-4 lg:m-6"
       >
         <Link href={newsLink} target="_blank" rel="noopener noreferrer">
-          <div className="bg-white dark:bg-neutral-950 rounded-lg shadow-lg overflow-hidden border border-gray-300 dark:border-gray-600 flex flex-col h-full hover:scale-105 transition-all duration-300 ease-in-out">
+          <div className="bg-white dark:bg-neutral-950 rounded-lg shadow-lg overflow-hidden border border-gray-300 dark:border-gray-600 flex flex-col h-full hover:scale-105 transition-all dark:transition-all duration-300 dark:duration-300 ease-in-out dark:ease-in-out">
             {image && !imageError ? (
               <img
                 src={image}

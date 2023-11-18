@@ -61,7 +61,7 @@ const Footer = () => {
 
   return (
     <div
-      className={`py-1 px-4 lg:py-4 lg:px-8 sticky bottom-0 transition-all ease-in-out duration-300 ${
+      className={`py-1 px-4 lg:py-4 lg:px-8 sticky bottom-0 transition-all dark:transition-all ease-in-out dark:ease-in-out duration-300 dark:duration-300 ${
         isAtBottom
           ? "border-t-0 bg-transparent"
           : "border-t-[1px] border-t-neutral-700 bg-white dark:bg-black dark:border-neutral-50"
@@ -87,7 +87,7 @@ const Footer = () => {
                 <Link
                   href={link.href}
                   key={index}
-                  className="hover:text-neutral-600 transition-colors ease-in-out duration-300"
+                  className="hover:text-neutral-600 transition-colors ease-in-out dark:ease-in-out duration-300 dark:duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

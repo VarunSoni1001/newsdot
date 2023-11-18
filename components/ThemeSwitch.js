@@ -3,13 +3,19 @@ import { useTheme } from "next-themes";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme, systemTheme } = useTheme();
-  let localStorageTheme = "system";
+  const { theme, setTheme } = useTheme();
+
+  const handleThemeChange = (selectedTheme) => {
+    setTheme(selectedTheme);
+    localStorage.setItem("theme", selectedTheme);
+  };
 
   useEffect(() => {
-    localStorageTheme = localStorage.getItem("theme");
+    let localStorageTheme = localStorage.getItem("theme");
     if (localStorageTheme) {
       setTheme(localStorageTheme);
+    } else {
+      handleThemeChange(theme);
     }
   }, []);
 
@@ -22,19 +28,9 @@ const ThemeSwitch = () => {
   }
 
   const themes = [
-    {
-      type: "System",
-      icon: systemTheme === "light" ? <>&#9728;</> : <>&#9790;</>,
-      value: "system",
-    },
     { type: "Light", icon: <>&#9728;</>, value: "light" },
     { type: "Dark", icon: <>&#9790;</>, value: "dark" },
   ];
-
-  const handleThemeChange = (selectedTheme) => {
-    setTheme(selectedTheme);
-    localStorage.setItem("theme", selectedTheme);
-  };
 
   return (
     <select
@@ -42,7 +38,7 @@ const ThemeSwitch = () => {
       name="Theme"
       title="Change theme"
       onChange={(e) => handleThemeChange(e.target.value)}
-      className={`p-1 rounded-lg bg-neutral-300 dark:bg-neutral-800 text-black dark:text-white outline-none cursor-pointer transition-all ease-in-out duration-300 focus:outline-none mt-4 lg:mt-0`}
+      className={`p-1 rounded-lg bg-neutral-300 dark:bg-neutral-800 text-black dark:text-white outline-none cursor-pointer transition-all dark:transition-all ease-in-out dark:ease-in-out duration-300 dark:duration-300 focus:outline-none mt-4 lg:mt-0`}
     >
       {themes?.map((theme, index) => (
         <option key={index} value={theme.value}>
