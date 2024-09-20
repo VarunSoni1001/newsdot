@@ -64,7 +64,7 @@ const Footer = () => {
       className={`py-1 px-4 lg:py-4 lg:px-8 sticky bottom-0 transition-all dark:transition-all ease-in-out dark:ease-in-out duration-300 dark:duration-300 ${
         isAtBottom
           ? "border-t-0 bg-transparent"
-          : "border-t-[1px] border-t-neutral-700 bg-white dark:bg-black dark:border-neutral-50"
+          : "border-t-[1px] border-t-neutral-700 bg-white/75 backdrop-blur-xl dark:bg-neutral-900/75 dark:border-neutral-50"
       }`}
     >
       {" "}

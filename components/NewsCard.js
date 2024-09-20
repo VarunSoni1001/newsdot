@@ -41,7 +41,7 @@ const NewsCard = ({
         className="m-2 md:m-4 lg:m-6"
       >
         <Link href={newsLink} target="_blank" rel="noopener noreferrer">
-          <div className="bg-white dark:bg-neutral-950 rounded-lg shadow-lg overflow-hidden border border-gray-300 dark:border-gray-600 flex flex-col h-full hover:scale-105 transition-all dark:transition-all duration-300 dark:duration-300 ease-in-out dark:ease-in-out">
+          <div className="bg-neutral-100 dark:bg-neutral-800 rounded-lg shadow-lg overflow-hidden border border-gray-300 dark:border-gray-600 flex flex-col h-full hover:scale-105 transition-all dark:transition-all duration-300 dark:duration-300 ease-in-out dark:ease-in-out">
             {image && !imageError ? (
               <img
                 src={image}
@@ -60,7 +60,7 @@ const NewsCard = ({
                     alt={sourceName}
                   />
                   <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
-                  <span className="absolute w-full text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white">
+                  <span className="absolute w-full text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-neutral-200">
                     {urlIfImageIsNotThere}
                   </span>
                 </div>
@@ -68,7 +68,7 @@ const NewsCard = ({
             )}
             <div className="flex flex-col justify-between flex-grow p-4">
               <div>
-                <h2 className="text-xl font-semibold text-gray-800 dark:text-neutral-100 mb-2">
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-neutral-200 mb-2">
                   {title}
                 </h2>
                 <p className="text-gray-600 dark:text-neutral-300 mb-4">

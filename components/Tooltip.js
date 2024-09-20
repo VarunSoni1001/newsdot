@@ -17,7 +17,7 @@ const Tooltip = ({ text, children }) => {
           animate={{ opacity: 1, y: -16 }}
           exit={{ opacity: 0, y: -4 }}
           transition={{ duration: 0.3 }}
-          className="bg-neutral-800 text-xs text-white p-4 rounded-md absolute z-10 bottom-full min-w-max"
+          className="bg-neutral-800 text-xs text-neutral-200 p-4 rounded-md absolute z-10 bottom-full min-w-max"
         >
           <div className="w-4 h-4 bg-neutral-800 absolute top-full left-1/2 transform -translate-y-3 -translate-x-[4.2rem] rotate-45" />
           {text}

@@ -38,7 +38,7 @@ const ThemeSwitch = () => {
       name="Theme"
       title="Change theme"
       onChange={(e) => handleThemeChange(e.target.value)}
-      className={`p-1 rounded-lg bg-neutral-300 dark:bg-neutral-800 text-black dark:text-white outline-none cursor-pointer transition-all dark:transition-all ease-in-out dark:ease-in-out duration-300 dark:duration-300 focus:outline-none mt-4 lg:mt-0`}
+      className={`p-1 rounded-lg bg-neutral-300 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-200 outline-none cursor-pointer transition-all dark:transition-all ease-in-out dark:ease-in-out duration-300 dark:duration-300 focus:outline-none mt-4 lg:mt-0`}
     >
       {themes?.map((theme, index) => (
         <option key={index} value={theme.value}>

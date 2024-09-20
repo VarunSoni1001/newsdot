@@ -10,12 +10,13 @@ export default async function handler(req, res) {
 
     var url =
       category && !query && page
-        ? `https://newsapi.org/v2/top-headlines?country=in&category=${category}&page=${page}`
+        ? `https://newsapi.org/v2/top-headlines?category=${category}&page=${page}`
         : query && !category && page
         ? `https://newsapi.org/v2/everything?language=en&q=${encodeURIComponent(
             query
-          )}&searchIn=title,description&sortBy=publishedAt&page=${page}`
-        : `https://newsapi.org/v2/top-headlines?country=in&page=${page}`;
+          )}&sortBy=publishedAt&page=${page}`
+        : // &searchIn=title,description,content for above one
+          `https://newsapi.org/v2/top-headlines?country=us&page=${page}`;
 
     try {
       const response = await fetch(url, {
